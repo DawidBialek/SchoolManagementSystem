@@ -1,17 +1,20 @@
 package com.sms;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class  Teacher {
 
     private int id;
+    private static final AtomicInteger count = new AtomicInteger(0);
     private String name;
     private int salary;
-    private int salaryEarned;
+    private int currentCashAmount;
 
     public Teacher(int id, String name, int salary){
-        this.id = id;
+        this.id = count.incrementAndGet();
         this.name = name;
         this.salary = salary;
-        this.salaryEarned = 0;
+        this.currentCashAmount = 0;
     }
 
 
@@ -28,7 +31,7 @@ public class  Teacher {
     }
 
     public void recieveSalary(School school){
-        salaryEarned += salary;
+        currentCashAmount += salary;
         school.updateTotalMoneySpent(salary);
     }
 
@@ -38,7 +41,7 @@ public class  Teacher {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
-                ", salaryEarned=" + salaryEarned +
+                ", salaryEarned=" + currentCashAmount +
                 '}';
     }
 }

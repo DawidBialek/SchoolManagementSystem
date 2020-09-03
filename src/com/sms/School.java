@@ -1,20 +1,28 @@
 package com.sms;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class School {
 
     private ArrayList<Teacher> Teachers;
     private ArrayList<Student> Students;
 
+    private int id;
+    private static final AtomicInteger count = new AtomicInteger(0);
+
     private int totalMoneyEarned;
     private int totalMoneySpent;
+    private int bankAccount;
+
 
     public School(ArrayList<Teacher> teachers, ArrayList<Student> students) {
+        id = count.incrementAndGet();
         Teachers = teachers;
         Students = students;
         totalMoneyEarned = 0;
         totalMoneySpent = 0;
+        bankAccount = 0;
     }
 
     public void addTeacher(Teacher teacher){
@@ -51,6 +59,19 @@ public class School {
 
     public void updateTotalMoneyEarned(int moneyEarned){
         totalMoneyEarned += moneyEarned;
+        updateBankAccount(moneyEarned);
+    }
+
+    public int getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(int bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    public void updateBankAccount(int money){
+        bankAccount += money;
     }
 
     public int getTotalMoneySpent() {
@@ -60,6 +81,7 @@ public class School {
     public void updateTotalMoneySpent(int moneySpent) {
         totalMoneySpent += moneySpent;
         totalMoneyEarned -= moneySpent;
+        updateBankAccount(-moneySpent);
     }
 
     public void setTotalMoneySpent(int totalMoneySpent) {

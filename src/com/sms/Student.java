@@ -1,20 +1,22 @@
 package com.sms;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Student {
 
     private int id;
+    private static final AtomicInteger count = new AtomicInteger(0);
     private String name;
     private int grade;
     private int feesPaid;
-    private int feesTotal;
+    private int semesterCost;
 
     public Student(int id, String name, int grade){
-        this.id = id;
+        this.id = count.incrementAndGet();
         this.name = name;
         this.grade = grade;
-
         this.feesPaid = 0;
-        this.feesTotal = 30000;
+        this.semesterCost = 30000;
     }
 
     public void setGrade(int grade){
@@ -40,7 +42,7 @@ public class Student {
     }
 
     public int getFeesTotal(){
-        return feesTotal;
+        return semesterCost;
     }
 
     @Override
@@ -50,7 +52,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
                 ", feesPaid=" + feesPaid +
-                ", feesTotal=" + feesTotal +
+                ", feesTotal=" + semesterCost +
                 '}';
     }
 }
