@@ -42,7 +42,10 @@ public class Main {
         System.out.println(Janusz);
         System.out.println(Michal);
 
-
         System.out.println(school);
+
+        SystemManager systemManager = new SystemManager();
+
+        systemManager.run();
     }
 }
