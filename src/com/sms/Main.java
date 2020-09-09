@@ -27,22 +27,22 @@ public class Main {
 
         school.addTeacher(new Teacher(4, "Megan", 1000));
 
-        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
-        System.out.println("School has : " + school.getBankAccount() + "$ on bank account");
+//        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
+//        System.out.println("School has : " + school.getBankAccount() + "$ on bank account");
 
         Michal.payFees(3000, school);
-        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
-        System.out.println("After paying fees school has : " + school.getBankAccount() + "$ on bank account");
+//        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
+//        System.out.println("After paying fees school has : " + school.getBankAccount() + "$ on bank account");
 
         Janusz.recieveSalary(school);
-        System.out.println("School has spent : " + school.getTotalMoneySpent() + "$");
-        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
-        System.out.println("After receiving salary school has : " + school.getBankAccount() + "$ on bank account");
+//        System.out.println("School has spent : " + school.getTotalMoneySpent() + "$");
+//        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
+//        System.out.println("After receiving salary school has : " + school.getBankAccount() + "$ on bank account");
 
-        System.out.println(Janusz);
-        System.out.println(Michal);
-
-        System.out.println(school);
+//        System.out.println(Janusz);
+//        System.out.println(Michal);
+//
+//        System.out.println(school);
 
         SystemManager systemManager = new SystemManager();
 
