@@ -44,7 +44,7 @@ public class Main {
 //
 //        System.out.println(school);
 
-        SystemManager systemManager = new SystemManager();
+        SystemManager systemManager = new SystemManager(school);
 
         systemManager.run();
     }
