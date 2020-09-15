@@ -46,13 +46,33 @@ public class SystemManager {
     public void teachersMenu(){
         System.out.println("\nTeacher options:");
         System.out.println("[0] - Print teachers info");
-        System.out.println("[1] - Set payday for all teachers");
-        System.out.println("[2] - Send payment for chosen teacher");
+        System.out.println("[1] - Set salary for all teachers");
+        System.out.println("[2] - Send salary for chosen teacher");
 
         System.out.print("Input option here: ");
 
         option = scanner.nextInt();
         System.out.println("You choose option " + option);
+
+        if(option == 0){
+            System.out.println(school.getTeachers());
+        } else if(option == 1){
+            int salaryAmount;
+            System.out.print("Set salary amount: ");
+            salaryAmount = scanner.nextInt();
+            for (Teacher teacher : school.getTeachers()
+                 ) {
+                teacher.setSalary(salaryAmount);
+
+            }
+            System.out.println("Salary set successfully");
+        } else if(option == 2){
+            int teacherId;
+            System.out.print("Teacher id: ");
+            teacherId = scanner.nextInt();
+            school.getTeachers().get(teacherId).recieveSalary(school);
+            System.out.println("Teacher " + teacherId + " received his/hers salary successfully");
+        }
     }
 
     public void classesAndGradesMenu(){
