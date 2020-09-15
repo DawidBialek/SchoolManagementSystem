@@ -1,6 +1,5 @@
 package com.sms;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
@@ -70,7 +69,7 @@ public class SystemManager {
             int teacherId;
             System.out.print("Teacher id: ");
             teacherId = scanner.nextInt();
-            school.getTeachers().get(teacherId).recieveSalary(school);
+            school.getTeachers().get(teacherId).receiveSalary(school);
             System.out.println("Teacher " + teacherId + " received his/hers salary successfully");
         }
     }
@@ -85,6 +84,19 @@ public class SystemManager {
 
         option = scanner.nextInt();
         System.out.println("You choose option " + option);
+
+        if(option == 0){
+            String className;
+            System.out.println("Class name: ");
+            className = scanner.nextLine();
+
+            // Add class here
+
+        } else if(option == 1){
+
+        } else if(option == 2){
+
+        }
     }
 
     public void run(){

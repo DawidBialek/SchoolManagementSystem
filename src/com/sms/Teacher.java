@@ -30,7 +30,7 @@ public class  Teacher {
         return salary;
     }
 
-    public void recieveSalary(School school){
+    public void receiveSalary(School school){
         currentCashAmount += salary;
         school.updateTotalMoneySpent(salary);
     }

@@ -34,7 +34,7 @@ public class Main {
 //        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
 //        System.out.println("After paying fees school has : " + school.getBankAccount() + "$ on bank account");
 
-        Janusz.recieveSalary(school);
+        Janusz.receiveSalary(school);
 //        System.out.println("School has spent : " + school.getTotalMoneySpent() + "$");
 //        System.out.println("School has earned : " + school.getTotalMoneyEarned() + "$");
 //        System.out.println("After receiving salary school has : " + school.getBankAccount() + "$ on bank account");
