@@ -1,5 +1,6 @@
 package com.sms;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
@@ -87,15 +88,30 @@ public class SystemManager {
 
         if(option == 0){
             String className;
-            System.out.println("Class name: ");
+            System.out.print("Class name: ");
+            scanner.next();
             className = scanner.nextLine();
 
-            // Add class here
+            school.addClass(new Class(new ArrayList<Integer>()));
+            System.out.println("Class added successfully");
 
         } else if(option == 1){
+            int studentId;
+            int grade;
+            System.out.print("Student id: ");
+            studentId = scanner.nextInt();
+            System.out.print("Grade: ");
+            grade = scanner.nextInt();
+
+            // TODO: Add student to the grades
+            school.getClasses().get(0).addGrade(grade);
+
 
         } else if(option == 2){
-
+            int classId;
+            System.out.print("Class id: ");
+            classId = scanner.nextInt();
+            System.out.println(school.getClasses().get(classId));
         }
     }
 

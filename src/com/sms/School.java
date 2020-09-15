@@ -1,5 +1,6 @@
 package com.sms;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,6 +16,7 @@ public class School {
     private int totalMoneySpent;
     private int bankAccount;
 
+    private ArrayList<Class> classes = new ArrayList<Class>();
 
     public School(ArrayList<Teacher> teachers, ArrayList<Student> students) {
         id = count.incrementAndGet();
@@ -86,6 +88,18 @@ public class School {
 
     public void setTotalMoneySpent(int totalMoneySpent) {
         this.totalMoneySpent = totalMoneySpent;
+    }
+
+    public ArrayList<Class> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(ArrayList<Class> classes) {
+        this.classes = classes;
+    }
+
+    public void addClass(Class cl){
+        this.classes.add(cl);
     }
 
     @Override
