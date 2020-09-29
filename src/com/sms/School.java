@@ -1,6 +1,7 @@
 package com.sms;
 
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,6 +16,7 @@ public class School {
     private int totalMoneyEarned;
     private int totalMoneySpent;
     private int bankAccount;
+    private LocalDate salaryDay;
 
     private ArrayList<Class> classes = new ArrayList<Class>();
 
@@ -25,6 +27,7 @@ public class School {
         totalMoneyEarned = 0;
         totalMoneySpent = 0;
         bankAccount = 0;
+        this.salaryDay = LocalDate.of(2020, 1, 10);
     }
 
     public void addTeacher(Teacher teacher){
@@ -102,13 +105,25 @@ public class School {
         this.classes.add(cl);
     }
 
+    public LocalDate getSalaryDay() {
+        return salaryDay;
+    }
+
+    public void setSalaryDay(LocalDate salaryDay) {
+        this.salaryDay = salaryDay;
+    }
+
     @Override
     public String toString() {
         return "School{" +
                 "Teachers=" + Teachers +
                 ", Students=" + Students +
+                ", id=" + id +
                 ", totalMoneyEarned=" + totalMoneyEarned +
                 ", totalMoneySpent=" + totalMoneySpent +
+                ", bankAccount=" + bankAccount +
+                ", salaryDay=" + salaryDay +
+                ", classes=" + classes +
                 '}';
     }
 }

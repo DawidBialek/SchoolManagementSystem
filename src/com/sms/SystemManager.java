@@ -10,9 +10,12 @@ public class SystemManager {
     int option;
     private Scanner scanner = new Scanner(System.in);
     private School school;
+    private Simulation simulation;
 
     public SystemManager(School school){
+
         this.school = school;
+        this.simulation = new Simulation(school);
     }
 
 
@@ -115,6 +118,13 @@ public class SystemManager {
         }
     }
 
+    public void resumeSimulation(){
+        System.out.println("Starting simulation...");
+        System.out.println("Input any character to exit");
+
+        simulation.run();
+    }
+
     public void run(){
 
         System.out.println("Welcome to the School Management system version 0.0.1");
@@ -129,6 +139,7 @@ public class SystemManager {
             System.out.println("[0] - Students");
             System.out.println("[1] - Teachers");
             System.out.println("[2] - Classes and grades");
+            System.out.println("[3] - Resume simulation");
 
             System.out.print("Input option here: ");
 
@@ -141,6 +152,8 @@ public class SystemManager {
                 teachersMenu();
             } else if(option == 2){
                 classesAndGradesMenu();
+            } else if(option == 3){
+                resumeSimulation();
             }
         }
     }

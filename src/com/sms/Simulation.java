@@ -1,34 +1,46 @@
 package com.sms;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 import static java.lang.Thread.sleep;
 
 public class Simulation {
 
     private LocalDate simulatedDate;
+    private Scanner scanner = new Scanner(System.in);
+    private School school;
+
+    public Simulation(School school){
+        this.school = school;
+    }
 
     public void run(){
         simulatedDate = LocalDate.now(); // Create a date object
         System.out.println(simulatedDate); // Display the current date
 
-        simulatedDate = simulatedDate.plusDays(1);
-
         long start = System.nanoTime();
         while(true){
+
             try{
-                sleep(100);
+                sleep(200);
             } catch (Exception e){
 
             }
+
             long end = System.nanoTime();
-//            System.out.println("Elapsed time: " + ((end - start)/1000000) + "ms");
-
-
             if((end - start)/1000000 > 500){
                 simulatedDate = simulatedDate.plusDays(1);
                 start = System.nanoTime();
+                System.out.println(simulatedDate);
 
+            } else if(simulatedDate.getDayOfMonth() == school.getSalaryDay().getDayOfMonth()){
+                for (Teacher teacher : school.getTeachers()
+                     ) {
+                    teacher.receiveSalary(school);
+                }
+                simulatedDate = simulatedDate.plusDays(1);
+                start = System.nanoTime();
                 System.out.println(simulatedDate);
             }
         }

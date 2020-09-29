@@ -46,9 +46,6 @@ public class Main {
 
         SystemManager systemManager = new SystemManager(school);
 
-//        systemManager.run();
-
-        Simulation simulation = new Simulation();
-        simulation.run();
+        systemManager.run();
     }
 }

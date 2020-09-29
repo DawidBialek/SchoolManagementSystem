@@ -1,5 +1,6 @@
 package com.sms;
 
+import java.time.LocalDate;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class  Teacher {
@@ -10,11 +11,13 @@ public class  Teacher {
     private int salary;
     private int currentCashAmount;
 
+
     public Teacher(int id, String name, int salary){
         this.id = count.incrementAndGet();
         this.name = name;
         this.salary = salary;
         this.currentCashAmount = 0;
+
     }
 
 
@@ -33,6 +36,7 @@ public class  Teacher {
     public void receiveSalary(School school){
         currentCashAmount += salary;
         school.updateTotalMoneySpent(salary);
+        System.out.println("Teacher " + this.name + " received salary!");
     }
 
     public void setId(int id) {
