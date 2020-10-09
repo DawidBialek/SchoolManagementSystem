@@ -11,11 +11,21 @@ public class SystemManager {
     private Scanner scanner = new Scanner(System.in);
     private School school;
     private Simulation simulation;
+    private KeyListener keyListener;
+
+    private Thread simulationThread;
+    private Thread keyThread;
 
     public SystemManager(School school){
 
         this.school = school;
-        this.simulation = new Simulation(school);
+
+        this.keyListener = new KeyListener();
+        this.simulation = new Simulation(school, keyListener);
+
+        simulationThread = new Thread(simulation);
+        keyThread = new Thread(keyListener);
+
     }
 
 
@@ -122,7 +132,14 @@ public class SystemManager {
         System.out.println("Starting simulation...");
         System.out.println("Input any character to exit");
 
-        simulation.run();
+        keyThread.start();
+        simulationThread.start();
+
+        if(scanner.hasNext()){
+            option = scanner.nextInt();
+        }
+
+//        simulation.run();
     }
 
     public void run(){

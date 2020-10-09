@@ -3,16 +3,19 @@ package com.sms;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import static java.lang.Thread.currentThread;
 import static java.lang.Thread.sleep;
 
-public class Simulation {
+public class Simulation implements Runnable{
 
     private LocalDate simulatedDate;
     private Scanner scanner = new Scanner(System.in);
     private School school;
+    private KeyListener keyListener;
 
-    public Simulation(School school){
+    public Simulation(School school, KeyListener keyListener){
         this.school = school;
+        this.keyListener = keyListener;
     }
 
     public void run(){
@@ -26,6 +29,12 @@ public class Simulation {
                 sleep(200);
             } catch (Exception e){
 
+            }
+
+            if(keyListener.getIsKeyPressed().get() == true){
+                keyListener.getIsKeyPressed().set(false);
+//                System.out.println("Key is pressed!");
+                break;
             }
 
             long end = System.nanoTime();
