@@ -42,6 +42,16 @@ public class Simulation {
                 simulatedDate = simulatedDate.plusDays(1);
                 start = System.nanoTime();
                 System.out.println(simulatedDate);
+            } else if(simulatedDate.getDayOfMonth() == school.getStudentPaymentDate().getDayOfMonth()){
+                for (Student student : school.getStudents()
+                ) {
+                    if(student.getFeesPaid() != student.getFeesTotal()){
+                        System.out.println("Student " + student.getId() + " is required to send fee of " + (student.getFeesTotal() - student.getFeesPaid()));
+                    }
+                }
+                simulatedDate = simulatedDate.plusDays(1);
+                start = System.nanoTime();
+                System.out.println(simulatedDate);
             }
         }
     }

@@ -17,6 +17,7 @@ public class School {
     private int totalMoneySpent;
     private int bankAccount;
     private LocalDate salaryDay;
+    private LocalDate studentPaymentDate;
 
     private ArrayList<Class> classes = new ArrayList<Class>();
 
@@ -28,6 +29,7 @@ public class School {
         totalMoneySpent = 0;
         bankAccount = 0;
         this.salaryDay = LocalDate.of(2020, 1, 10);
+        this.studentPaymentDate = LocalDate.of(2020, 1, 2);
     }
 
     public void addTeacher(Teacher teacher){
@@ -111,6 +113,22 @@ public class School {
 
     public void setSalaryDay(LocalDate salaryDay) {
         this.salaryDay = salaryDay;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDate getStudentPaymentDate() {
+        return studentPaymentDate;
+    }
+
+    public void setStudentPaymentDate(LocalDate studentPaymentDate) {
+        this.studentPaymentDate = studentPaymentDate;
     }
 
     @Override
