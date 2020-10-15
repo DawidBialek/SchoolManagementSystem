@@ -12,6 +12,7 @@ public class Simulation implements Runnable{
     private Scanner scanner = new Scanner(System.in);
     private School school;
     private KeyListener keyListener;
+    private final Object pauseLock = new Object();
 
     public Simulation(School school, KeyListener keyListener){
         this.school = school;
@@ -33,7 +34,11 @@ public class Simulation implements Runnable{
 
             if(keyListener.getIsKeyPressed().get() == true){
                 keyListener.getIsKeyPressed().set(false);
-//                System.out.println("Key is pressed!");
+//                try {
+//                    Thread.currentThread().wait();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
                 break;
             }
 

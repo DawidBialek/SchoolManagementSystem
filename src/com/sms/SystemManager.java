@@ -132,11 +132,19 @@ public class SystemManager {
         System.out.println("Starting simulation...");
         System.out.println("Input any character to exit");
 
-        keyThread.start();
-        simulationThread.start();
+        if(simulationThread.getState().equals(Thread.State.NEW)) {
+            keyThread.start();
+            simulationThread.start();
+        } else {
+//            keyThread.resume();
+            simulationThread.resume();
+        }
 
         if(scanner.hasNext()){
             option = scanner.nextInt();
+            simulationThread.suspend();
+//            keyThread.suspend();
+
         }
 
 //        simulation.run();
